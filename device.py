@@ -56,19 +56,19 @@ def get_traffic_drain_config_and_apply(device_name):
 
 
 def check_if_traffic_goes_away(device_name):
-    return (True, {'message':f'Device {device_name}' traffic went away.})
+    return (True, {'message':f'Device {device_name} traffic went away.'})
 
 
 def upgrade_eos_image(device_name, target_eos_version):
-    return (True, {'message':f'Device {device_name} has been upgraded to version {v}'})
+    return (True, {'message':f'Device {device_name} has been upgraded to version {target_eos_version}'})
 
 
 def print_console_info(device_name):
-    return (True, {'message':f'Device {device_name}'s console info: ts1-chq2b0140, port01, please login the console to monitor the upgrade process.'})
+    return (True, {'message':f"Device {device_name}'s console info: ts1-chq2b0140, port01, please login the console to monitor the upgrade process."})
 
 
 def collect_snapshot_and_compare_previous_snapshot(device_name):
-    return (True, {'message':f'Device {device_name} snapshot look good before upgrade and after upgrade.'})
+    return (True, {'message':f'Device {device_name} snapshot look good, there is no change between before upgrade and after upgrade.'})
 
 
 def get_traffic_undrain_config_and_apply(device_name):
