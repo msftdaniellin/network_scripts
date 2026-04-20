@@ -51,9 +51,9 @@ def collect_snapshot(device_name):
     return (True, {
         'message': f'snapshot collected from device {device_name}.',
         'snapshot': {
-            "bgp neighbor 1.1.1.1": 'up",
-            "bgp neighbor 1.1.1.3": 'up",
-            "bgp neighbor 1.1.1.5": 'down",
+            "bgp neighbor 1.1.1.1": "up",
+            "bgp neighbor 1.1.1.3": "up",
+            "bgp neighbor 1.1.1.5": "down",
             "interface eth1/1": "up",
             "interface eth1/2": "up",
             "interface eth1/3": "down",
@@ -83,9 +83,9 @@ def collect_snapshot_and_compare_previous_snapshot(device_name, snapshot):
         'message': f'snapshot collected after upgrading the device {device_name}, there is no change.',
         'snapshot_before_upgrade': snapshot,
         'snapshot_after_upgrade': {
-            "bgp neighbor 1.1.1.1": 'up",
-            "bgp neighbor 1.1.1.3": 'up",
-            "bgp neighbor 1.1.1.5": 'down",
+            "bgp neighbor 1.1.1.1": "up",
+            "bgp neighbor 1.1.1.3": "up",
+            "bgp neighbor 1.1.1.5": "down",
             "interface eth1/1": "up",
             "interface eth1/2": "up",
             "interface eth1/3": "down",
