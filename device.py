@@ -48,7 +48,18 @@ def set_silence_the_device_and_neighbors(device_name):
 
 
 def collect_snapshot(device_name):
-    return (True, {'message':f'snapshot collected from device {device_name}.'})
+    return (True, {
+        'message': f'snapshot collected from device {device_name}.',
+        'snapshot': {
+            "bgp neighbor 1.1.1.1": 'up",
+            "bgp neighbor 1.1.1.3": 'up",
+            "bgp neighbor 1.1.1.5": 'down",
+            "interface eth1/1": "up",
+            "interface eth1/2": "up",
+            "interface eth1/3": "down",
+            }
+        }
+    )
 
 
 def get_traffic_drain_config_and_apply(device_name):
@@ -67,8 +78,20 @@ def print_console_info(device_name):
     return (True, {'message':f"Device {device_name}'s console info: ts1-chq2b0140, port01, please login the console to monitor the upgrade process."})
 
 
-def collect_snapshot_and_compare_previous_snapshot(device_name):
-    return (True, {'message':f'Device {device_name} snapshot look good, there is no change between before upgrade and after upgrade.'})
+def collect_snapshot_and_compare_previous_snapshot(device_name, snapshot):
+    return (True, {
+        'message': f'snapshot collected after upgrading the device {device_name}, there is no change.',
+        'snapshot_before_upgrade': snapshot,
+        'snapshot_after_upgrade': {
+            "bgp neighbor 1.1.1.1": 'up",
+            "bgp neighbor 1.1.1.3": 'up",
+            "bgp neighbor 1.1.1.5": 'down",
+            "interface eth1/1": "up",
+            "interface eth1/2": "up",
+            "interface eth1/3": "down",
+            }
+        }
+    )
 
 
 def get_traffic_undrain_config_and_apply(device_name):
