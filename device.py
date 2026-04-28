@@ -5,11 +5,17 @@ def show_version(version):
     return (True, {'version': version})
 
 
-def show_interface_brief(device_name, interface_name):
-    interface_status = {
-        'ethernet1/1': 'up',
-        'ethernet1/2': 'down'
-    }
+def show_interface_brief(device_name, interface_name, retry=0):
+    if retry == 0:
+        interface_status = {
+            'ethernet1/1': 'up',
+            'ethernet1/2': 'down'
+        }
+    else:
+        interface_status = {
+            'ethernet1/1': 'up',
+            'ethernet1/2': 'up'
+        }
     time.sleep(1)
     if interface_name.lower() in interface_status:
         return (True, {'state': interface_status[interface_name]})
